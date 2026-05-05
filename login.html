@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="lv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login - Fast Fashion</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    main.page {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: var(--bg);
+      padding: 20px;
+    }
+    form.login-form {
+      background: white;
+      padding: 28px 36px;
+      border-radius: 16px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+      width: 320px;
+      font-family: "Inter", sans-serif;
+    }
+    form.login-form h1 {
+      font-family: "Playfair Display", serif;
+      font-weight: 600;
+      font-size: 32px;
+      margin-bottom: 28px;
+      text-align: center;
+      color: var(--accent);
+    }
+    form.login-form label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 6px;
+      margin-top: 18px;
+      color: var(--text);
+    }
+    form.login-form input[type="text"],
+    form.login-form input[type="password"] {
+      width: 100%;
+      padding: 10px 14px;
+      font-size: 18px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      outline-offset: 2px;
+      outline-color: var(--accent);
+      box-sizing: border-box;
+    }
+    form.login-form button {
+      margin-top: 28px;
+      width: 100%;
+      padding: 12px 16px;
+      font-size: 20px;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: background-color 0.3s ease;
+    }
+    form.login-form button:hover {
+      background: #6e2230;
+    }
+    .error-message {
+      margin-top: 18px;
+      color: #b00020;
+      font-weight: 600;
+      text-align: center;
+    }
+    a.back {
+      margin-top: 28px;
+      display: inline-block;
+      text-decoration: none;
+      color: rgba(0,0,0,.7);
+      font-weight: 700;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <main class="page">
+    <form class="login-form" id="loginForm" novalidate>
+      <h1>Login</h1>
+
+      <label for="username">Lietotājvārds</label>
+      <input type="text" id="username" name="username" required autocomplete="username" />
+
+      <label for="password">Parole</label>
+      <input type="password" id="password" name="password" required autocomplete="current-password" />
+
+      <button type="submit">Ienākt</button>
+
+      <div class="error-message" id="errorMessage" aria-live="polite"></div>
+    </form>
+
+  </main>
+
+  <script>
+  (function(){
+    const loginForm = document.getElementById('loginForm');
+    const errorMessage = document.getElementById('errorMessage');
+
+    loginForm.addEventListener('submit', function(e){
+      e.preventDefault();
+
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value;
+
+      errorMessage.textContent = '';
+
+      if (username === '' || password === '') {
+        errorMessage.textContent = 'Lūdzu, aizpildiet abus laukus.';
+        return;
+      }
+
+      // ✅ Переход на главную страницу
+      window.location.href = './galvena.html';
+    });
+  })();
+</script>
+
+</body>
+</html>  

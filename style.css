@@ -1,0 +1,240 @@
+/* ====== Base ====== */
+:root{
+  --bg: #d9d3d1;          /* серый фон как на макете */
+  --text: #111;
+  --muted: rgba(0,0,0,.55);
+  --accent: #8b2d3b;      /* бордовый/красный как на первом слайде */
+}
+
+*{ box-sizing: border-box; }
+html, body{ height: 100%; }
+body{
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+/* контейнер под “слайды” */
+.page{
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 48px 16px;
+}
+
+.slide{
+  width: min(1100px, 95vw);
+  background: transparent;
+}
+
+/* Заголовки как “тонкая эстетика” */
+.h1, .h2{
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  text-align: center;
+  margin: 0;
+}
+.h1{ font-size: clamp(44px, 6vw, 78px); }
+.h2{ font-size: clamp(34px, 5vw, 64px); }
+
+.center{
+  text-align: center;
+}
+.spacer-24{ height: 24px; }
+.spacer-40{ height: 40px; }
+.spacer-56{ height: 56px; }
+
+/* ====== Index (Hero login) ====== */
+.hero{
+  min-height: 100vh;
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(rgba(255,255,255,.75), rgba(255,255,255,.75)),
+    url("img/hero-clothes.jpg") center/cover no-repeat;
+  filter: saturate(0.95);
+}
+
+.hero-content{
+  position: relative;
+  width: min(1000px, 92vw);
+  text-align: center;
+}
+
+.hero-title{
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(48px, 6vw, 88px);
+  color: var(--accent);
+  margin: 0 0 64px 0;
+}
+
+.hero-actions{
+  display: grid;
+  gap: 18px;
+  justify-items: center;
+}
+
+.hero-link{
+  text-decoration: none;
+  font-size: clamp(26px, 3vw, 44px);
+  font-weight: 700;
+  letter-spacing: .2px;
+}
+
+.hero-link.signin{ color: #222; }
+.hero-link.login{ color: var(--accent); }
+
+/* кнопка перехода на меню (Galvenā lapa) */
+.to-main{
+  margin-top: 28px;
+  display: inline-block;
+  padding: 10px 16px;
+  border: 1px solid rgba(0,0,0,.25);
+  border-radius: 10px;
+  text-decoration: none;
+  color: rgba(0,0,0,.75);
+  background: rgba(255,255,255,.35);
+  font-weight: 600;
+}
+
+/* ====== Galvenā lapa (меню) ====== */
+.menu{
+  margin-top: 56px;
+  display: grid;
+  gap: 18px;
+  justify-content: center;
+  width: min(520px, 92vw);
+}
+
+.menu a{
+  text-decoration: none;
+  color: var(--text);
+  font-size: clamp(22px, 2.4vw, 34px);
+  padding: 10px 14px;
+  border-radius: 12px;
+}
+
+.menu a:hover{
+  background: rgba(255,255,255,.25);
+}
+
+/* ====== Bullet list (как на слайде “Ko es varu darīt?”) ====== */
+.bullets{
+  margin: 0 auto;
+  width: min(700px, 92vw);
+  display: grid;
+  gap: 18px;
+  padding: 0;
+  list-style: none;
+}
+
+.bullets li{
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: 18px;
+  align-items: center;
+  font-size: clamp(24px, 2.8vw, 38px);
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 500;
+}
+
+.dot{
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.85);
+  border: 1px solid rgba(0,0,0,.08);
+}
+
+/* ====== Paragraph slide (Kas ir Fast Fashion?) ====== */
+.big-paragraph{
+  width: min(900px, 92vw);
+  margin: 0 auto;
+  text-align: center;
+  font-size: clamp(22px, 2.2vw, 34px);
+  line-height: 1.55;
+  letter-spacing: .2px;
+}
+
+/* ====== Impact slide ====== */
+.impact{
+  width: min(950px, 92vw);
+  margin: 0 auto;
+  font-size: clamp(18px, 2vw, 28px);
+  line-height: 1.55;
+}
+
+.impact ul{
+  margin: 20px auto 0;
+  padding-left: 0;
+  list-style: none;
+  display: grid;
+  gap: 18px;
+}
+
+.impact li{
+  position: relative;
+  padding-left: 30px;
+}
+
+.impact li::before{
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: -2px;
+  font-size: 34px;
+}
+
+/* ====== Statistika ====== */
+.stats-layout{
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 28px;
+}
+
+.stats-card{
+  flex: 1;
+  display: grid;
+  place-items: center;
+}
+
+.stats-card img{
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.stats-text{
+  flex: 1.2;
+  text-align: center;
+  font-size: clamp(18px, 2vw, 28px);
+  line-height: 1.55;
+}
+
+@media (max-width: 900px){
+  .stats-layout{
+    flex-direction: column;
+  }
+  .stats-text{ order: -1; }
+}
+
+/* ====== Back link ====== */
+.back{
+  display: inline-block;
+  margin-top: 26px;
+  text-decoration: none;
+  color: rgba(0,0,0,.7);
+  font-weight: 700;
+}
